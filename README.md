@@ -1,2 +1,0 @@
-# ReactItems
-Created with CodeSandbox
