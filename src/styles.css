@@ -4,41 +4,7 @@
 #root {
   margin: 20px;
 }
-.pill {
-  background-color: green;
-  display: inline;
-  padding: 3px 10px;
-  border-radius: 15px;
-  color: white;
-}
-.pill i {
-  font-size: 0.8em;
-}
-.pill i.spin {
-  animation: spin 4s linear infinite;
-}
-.pill span {
-  padding: 0px 0px 0px 4px;
-}
-
-.pill form {
-  display: inline;
-}
-.pill input {
-  background: none;
-  border: none;
-  padding: 0px 3px;
-  color: white;
-  font-size: 0.9em;
-  max-width: 60px;
-}
 
 .output {
   margin: 20px;
-}
-
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
 }
