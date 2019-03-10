@@ -1,6 +1,6 @@
 .pill {
   background-color: green;
-  display: inline;
+  display: inline-block;
   padding: 3px 10px;
   border-radius: 15px;
   color: white;

@@ -10,7 +10,13 @@ class App extends React.Component {
   }
 
   render() {
-    return <Pills.Pill />;
+    return (
+      <div >
+      <Pills.Pill />
+      <p></p>
+      <Pills.Pill text="500" prefix="R" />
+      </div>
+      )
   }
 }
 

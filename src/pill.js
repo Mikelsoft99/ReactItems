@@ -8,7 +8,7 @@ export class Pill extends React.Component {
     super(props);
 
     this.state = {
-      new: true,
+      edit: true,
       text: "not set",
       input: "",
       apiSendOk: false,
@@ -23,7 +23,7 @@ export class Pill extends React.Component {
   }
 
   toggleState() {
-    this.setState({ new: false });
+    this.setState({ edit: false });
   }
 
   onChange(e) {
@@ -59,17 +59,24 @@ export class Pill extends React.Component {
   render() {
     let content = null;
     let icon = null;
+    let text = null;
 
-    if (this.state.new == true) {
+    if(this.props.text == null) {
+      text = "Add";
+    } else {
+      text = this.props.prefix + this.props.text;
+    }
+
+    if (this.state.edit == true) {
       content = (
         <>
           <i className="fas fa-plus" />
-          <span onClick={this.toggleState}>Add</span>
+          <span onClick={this.toggleState}>{text}</span>
         </>
       );
     }
 
-    if (this.state.new == false) {
+    if (this.state.edit == false) {
       // icon management
       if (!this.state.apiWorking) {
         icon = <i class="fas fa-arrow-circle-right" onClick={this.save} />;
@@ -81,9 +88,17 @@ export class Pill extends React.Component {
         icon = <i className="fas fa-check" />;
       }
 
+      let input = null;
+      if(this.props.text == null) {
+        input =  <input type="text" autoFocus onChange={this.onChange} />
+         
+      } else {
+        input = <input type="text" autoFocus onChange={this.onChange} value={this.props.text} />
+      }
+
       content = (
         <form onSubmit={this.onSubmit}>
-          <input type="text" autoFocus onChange={this.onChange} />
+          {input}
           {icon}
         </form>
       );
